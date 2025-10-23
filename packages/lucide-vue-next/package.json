@@ -1,5 +1,5 @@
 {
-  "name": "lucide-vue-next",
+  "name": "@beeintel/lucide-vue-next",
   "version": "0.0.1",
   "author": "Eric Fennis",
   "description": "A Lucide icon library package for Vue 3 applications.",
@@ -36,8 +36,8 @@
   ],
   "scripts": {
     "build": "pnpm clean && pnpm copy:license && pnpm build:icons && pnpm build:bundles",
-    "copy:license": "cp ../../LICENSE ./LICENSE",
-    "clean": "rm -rf dist && rm -rf ./src/icons/*.ts",
+    "copy:license": "cpy ../../LICENSE . --flat",
+    "clean": "rimraf -g dist ./src/icons/*.ts",
     "build:icons": "build-icons --output=./src --templateSrc=./scripts/exportTemplate.mts --renderUniqueKey --withAliases --aliasesFileExtension=.ts --iconFileExtension=.ts --exportFileName=index.ts",
     "build:bundles": "rollup -c ./rollup.config.mjs",
     "test": "pnpm build:icons && vitest run",
